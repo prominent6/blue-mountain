@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .outer {
+            width: 206px;
+            height: 368px;
+            margin: 10px auto;
+            background-color: white;
+        }
+
+        .look {
+            box-sizing: border-box;
+            width: 100%;
+            height: 60px;
+            padding: 4px;
+            background-color: grey;
+            color: white;
+            word-wrap: break-word;
+            word-break: break-all;
+            font-size: 12px;
+        }
+
+        .look .output {
+            text-align: right;
+        }
+
+        .count-list {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            grid-template-rows: repeat(5, 60px);
+            grid-gap: 2px;
+        }
+
+        .count-list .item {
+            background-color: pink;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .item:hover {
+            cursor: pointer;
+        }
+
+        .ac {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+
+        .equal {
+            grid-area: 5 / 3 / 6 / 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="look">
+            <div class="input"></div>
+            <div class="output">0</div>
+        </div>
+        <div class="count-list">
+            <div class="item ac">AC</div>
+            <div class="item">清除</div>
+            <div class="item">÷</div>
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">*</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">+</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">-</div>
+            <div class="item">.</div>
+            <div class="item">0</div>
+            <div class="item equal">=</div>
+        </div>
+    </div>
+    <script>
+        //功能：清除和计算多项式未实现
+        //只可以前一位数是多位数，第二数单位数
+        let iptList = document.querySelectorAll('.item');
+        let ipt = document.querySelector('.input');
+        let opt = document.querySelector('.output');
+        let firstValue = 0;
+        let lastValue = 0;
+        let type;
+        for (let i = 0; i < iptList.length; i++) {
+            iptList[i].addEventListener('click', function () {
+                if (this.innerHTML == 'AC') {
+                    ipt.innerHTML=" ";
+                    opt.innerHTML=0;
+                } else if (this.innerHTML == '=') {
+                    firstValue =ipt.innerHTML;
+                    for(let i=0;i<firstValue.length;i++){
+                        if (!isNaN(firstValue[i])){
+                            lastValue+=firstValue[i];
+                        }
+                        type = firstValue[i];
+                        switch (type) {
+                        case "+":
+                        opt.innerHTML = Number(lastValue)+ Number(firstValue[i+1]);
+                            break;
+                        case "-":
+                        opt.innerHTML = Number(lastValue) - Number(firstValue[i+1]);
+                            break;
+                        case "*":
+                        opt.innerHTML = lastValue* firstValue[i+1];
+                            break;
+                        case "÷":
+                            if (firstValue[i+1] === 0) opt.innerHTML = "0";
+                            else {
+                                opt.innerHTML = Number(lastValue) / Number(firstValue[i+1]);
+                                break;
+                            }
+                        }
+                    }
+                } else if (this.innerHTML == '清除') {
+                    alert('3');
+                } else {
+                    ipt.innerHTML += this.innerHTML;
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

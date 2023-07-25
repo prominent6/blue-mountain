@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022/7/14 留言墙</title>
+    <style>
+        /* 200*200的小正方形 间隔10 850 */
+        
+        * {
+            color: indianred;
+            font-size: 20px;
+        }
+        
+        .grid-container {
+            display: grid;
+            width: 850px;
+            height: 850px;
+            background-color: pink;
+            margin: 10px auto;
+            grid-template-columns: repeat(4, 200px);
+            grid-template-rows: repeat(4, 200px);
+            grid-gap: 10px;
+            place-content: space-evenly;
+        }
+        
+        .grid-item {
+            box-sizing: border-box;
+            background-color: antiquewhite;
+            padding: 15px;
+            letter-spacing: 4px;
+        }
+        
+        .one {
+            background: url(giveFlower.jpg) 0 0 /200px 200px;
+        }
+        
+        .two {
+            padding-left: 20px;
+            grid-area: 1 / 2 / 3 /4;
+        }
+        
+        .three {
+            background: url(yehei.jpg) 0 0 /200px 200px;
+        }
+        
+        .four {
+            padding-top: 45px;
+        }
+        
+        .five,
+        .nine {
+            padding-top: 24px;
+        }
+        
+        .six {
+            grid-area: 3 / 1 / 5 /3;
+            padding: 25px;
+            text-align: center;
+            padding-top: 56px;
+        }
+        
+        .eight {
+            letter-spacing: 2px;
+            padding-top: 60px;
+            padding-left: 20px;
+        }
+        
+        .seven {
+            font-size: 16px;
+        }
+        
+        .ten {
+            background: url(bye.jpg) 0 0 /200px 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item one"></div>
+        <div class="grid-item two">
+            “你必须拼命努力，才能看起来毫不费力，就像撒贝宁在开讲了里面说的，人生就是一场马拉松，谁能坚持到最后，才最关键。这个世界上从来没有一夜成名的奇迹，有的只是默默无闻的时候，日复一日的拼命努力。这个世界上没有那么多不劳而获的喜出望外，有的只是苦尽甘来之后的得偿所愿。所有的风光无限背后其实都是疼痛、泪汗的交织。你问我为什么要那么努力，因为想去的地方很远，想要的东西很贵，喜欢的人很优秀，以及，我永远不想停留在此刻。”
+        </div>
+        <div class="grid-item three"></div>
+        <div class="grid-item four">
+            “当你穿过了暴风雨，你就不再是原来的那个人了。”
+        </div>
+        <div class="grid-item five">
+            “那些看似波澜不惊的日复一日，在某一天会让你看到坚持的意义。”
+        </div>
+        <div class="grid-item six">
+            <p>“一切都会好起来的~”</p>
+            <p>这句话是我每次难过的时候想想就会充满力量！！！</p>
+            <p>但我觉得前面应该再加上一句话：</p>
+            <p>“只要你肯去努力。”</p>
+            <p>“只要你肯去努力，一切都会好起来的！”</p>
+
+        </div>
+        <div class="grid-item seven">
+            “在光芒万丈之前，我们都要欣然接受眼下的难堪和不易，接受一个人的孤独和偶然无助，认真做好眼前的每一件事，你想要的都会有。”
+        </div>
+        <div class="grid-item eight">
+            "What is past is prologue. "
+        </div>
+        <div class="grid-item nine">
+            “当一个人踮起脚尖靠近太阳的时候，全世界都挡不住他的光芒。”
+
+        </div>
+        <div class="grid-item ten"></div>
+
+    </div>
+</body>
+
+</html>

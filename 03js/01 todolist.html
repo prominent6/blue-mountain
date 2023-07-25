@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            width: 300px;
+            height: 540px;
+            background-color: bisque;
+            margin: 20px auto;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .outer .upper {
+            width: 100%;
+            height: 120px;
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .upper-inner .title {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        .upper-inner .log {
+            height: 30px;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            border: 1px solid rgba(0, 0, 0, .1);
+            overflow: hidden;
+        }
+
+        input {
+            outline: none;
+            height: 30px;
+            width: 150px;
+            border: none;
+            box-sizing: border-box;
+            background-color: #fff;
+            text-indent: 10px;
+            vertical-align: middle;  
+        }
+
+        .log .add {
+            height: 30px;
+            width: 35px;
+            border: none;
+            background-color: indianred;
+            margin-left: -5px
+        }
+
+        ul {
+            width: 300px;
+        }
+
+        ul li {
+            list-style: none;
+            box-sizing: border-box;
+            width: 300px;
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            padding: 0 5px;
+            color: #fff;
+            border: 1px solid white;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0;
+        }
+
+        ul li:nth-child(2n) {
+            background-color: beige;
+            color: black;
+        }
+
+        .first {
+            width: 25px;
+            height: 25px;
+            float: left;
+            text-align: center;
+        }
+
+        .content {
+            float: left;
+        }
+
+        .special{
+            float: left;
+            text-decoration:line-through;
+        }
+        .right {      
+            float: right;
+        }
+
+        .right:hover {
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="outer">
+        <div class="upper">
+            <div class="upper-inner">
+                <p class="title">My To Do List</p>
+                <div class="log">
+                    <input type="text" placeholder="记录一下">
+                    <button class="add">Add</button>
+                </div>
+            </div>
+        </div>
+        <ul class="down">
+            
+        </ul>
+    </div>
+    <script>
+        let ipt = document.querySelector('input');
+        let btn = document.querySelector('button');
+        let lsUl = document.querySelector('.down');
+
+        //点击按钮增加留言
+        btn.addEventListener('click', function () {
+            let liAdd = document.createElement('li');
+            lsUl.appendChild(liAdd);
+            let list = `<div class="first"></div>
+            <p class="content">${ipt.value}</p>
+            <div class="right">❌</div>`;
+            liAdd.innerHTML = list;
+            ipt.value="";
+
+            //点击留言表示完成
+            let lis = document.querySelectorAll('li');
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].addEventListener('click', function () {
+                    let gou = this.querySelector('.first');
+                    this.style.backgroundColor = 'lightcoral'
+                    gou.innerHTML = '✔';
+                    this.children[1].className='content special';
+                })
+            }
+
+            //点击叉叉进行删除
+            let cha = document.querySelectorAll('.right');
+            for (let i = 0; i < cha.length; i++) {
+                cha[i].addEventListener('click', function () {
+                    lsUl.removeChild(this.parentNode);
+                })
+            }
+
+        })
+    </script>
+</body>
+
+</html>

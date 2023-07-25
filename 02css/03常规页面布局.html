@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常规页面布局练习</title>
+    <link rel="stylesheet" href="iconfont.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul li {
+            list-style: none;
+        }
+        
+        .outer {
+            width: 500px;
+            height: 700px;
+            margin: 10px auto;
+            background-color: skyblue;
+        }
+        
+        .upper {
+            box-sizing: border-box;
+            margin: 0px auto;
+            padding-top: 10px;
+            width: 450px;
+            height: 400px;
+            background-color: antiquewhite;
+        }
+        
+        .upper .footer {
+            width: 100%;
+            height: 40px;
+            background-color: aliceblue;
+        }
+        
+        .upper .footer .left {
+            float: left;
+            margin-left: 10px;
+            width: 60px;
+            height: 100%;
+            background-color: blueviolet;
+        }
+        
+        .upper .footer .right {
+            float: right;
+            margin-right: 10px;
+        }
+        
+        .upper .footer .right li {
+            line-height: 40px;
+            float: left;
+            padding: 0 10px;
+        }
+        
+        .upper .main {
+            width: 100%;
+            height: 360px;
+            background-color: darkmagenta;
+        }
+        
+        .down {
+            display: flex;
+            margin: 0 auto;
+            width: 450px;
+            height: 300px;
+            background-color: blue;
+            justify-content: space-around;
+        }
+        
+        .down li {
+            width: 120px;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="upper">
+            <div class="footer">
+                <div class="left"></div>
+                <ul class="right">
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li><i class="iconfont icon-sousuoxiao search_btn"></i></li>
+                </ul>
+            </div>
+            <div class="main"></div>
+        </div>
+        <ul class="down">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+</body>
+
+</html>

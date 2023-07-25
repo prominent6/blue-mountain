@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开学倒计时</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: linear-gradient(to bottom right, red, gold);
+        }
+        .box {
+            width: 400px;
+            height: 250px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 6px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            box-shadow: 1px 1px 10px #fff;
+            text-shadow: 0px 1px 30px white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 30px;
+            user-select: none;
+            padding: 0 20px;
+            /* 盒子投影 */
+            -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0%, transparent), to(rgba(250, 250, 250, .2)));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="dd">00</div>天
+        <div id="hh">00</div>小时
+        <div id="mm">00</div>分钟
+        <div id="ss">00</div>秒
+    </div>
+    <script>
+        var dd=document.querySelector('#dd');
+        var hh = document.querySelector('#hh');
+        var mm = document.querySelector('#mm');
+        var ss = document.querySelector('#ss');
+        //将计算的值赋值给盒子
+        var inputTime = +new Date('2022-9-5 00:00:00');
+        countDown(); //先调用一次，防止第一次刷新页面有空白
+        setInterval(countDown, 1000);
+        function countDown() {
+            let nowTime = +new Date(); //总的毫秒数
+            let times = (inputTime - nowTime) / 1000;
+            //剩余事件总的秒数
+            let d=parseInt(times / 60 / 60/24)  //天
+            d = padZero(d);
+            console.log(d);
+            dd.innerHTML = d;
+            let h = parseInt(times / 60 / 60 % 24); //时
+            h = padZero(h);
+            hh.innerHTML = h;
+            let m = parseInt(times / 60 % 60); //分
+            m = padZero(m);
+            mm.innerHTML = m;
+            let s = parseInt(times % 60); //秒
+            s = padZero(s);
+            ss.innerHTML = s;
+        }
+
+        function padZero(n) {
+            return n > 9 ? n : '0' + n
+        }
+        
+    </script>
+</body>
+
+</html>

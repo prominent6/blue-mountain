@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>按钮</button>
+    <script>
+        //防抖：用户触发时间过于频繁，只要最后一次事件操作
+        let ipt=document.querySelector("input");
+        let t=null;
+        ipt.oninput=function(){
+            if(t!==null){
+                clearTimeout(t);
+            }
+            t=setTimeout(()=>{
+                console.log(this.value);
+            },500);
+        }
+    
+        //节流：控制执行次数
+        //作用：控制高频时间执行次数
+        let flag=true;
+        let btn=document.querySelector("button");
+        btn.onclick=function(){
+            if(flag){
+                setTimeout(()=>{
+                    console.log("hello world");
+                    flag=true;
+                },500)
+            }
+            flag=false;
+        }
+        </script>
+</body>
+</html>

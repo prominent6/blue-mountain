@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d旋转图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .outer {
+            width: 500px;
+            height: 500px;
+            margin: 10px auto;
+            background: url(eat/yep.gif) no-repeat 0 0 / 500px 500px;
+        }
+        
+        ul li img {
+            width: 200px;
+            height: 200px;
+            border: 5px solid skyblue;
+            box-sizing: border-box;
+        }
+        
+        ul {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 253px;
+            left: 43%;
+            transform-style: preserve-3d;
+            animation: play 6s linear 0s infinite normal;
+        }
+        
+        ul li {
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: plays 6s linear 0s infinite normal;
+        }
+        
+        ul li:nth-child(1) {
+            transform: rotateY(36deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(2) {
+            transform: rotateY(72deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(3) {
+            transform: rotateY(108deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(4) {
+            transform: rotateY(144deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(5) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(6) {
+            transform: rotateY(216deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(7) {
+            transform: rotateY(252deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(8) {
+            transform: rotateY(288deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(9) {
+            transform: rotateY(324deg) translateZ(300px);
+        }
+        
+        ul li:nth-child(10) {
+            transform: rotateY(360deg) translateZ(300px);
+        }
+        
+        @keyframes play {
+            from {
+                transform: rotateX(-12deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(-12deg) rotateY(360deg);
+            }
+        }
+        
+        @keyframes plays {
+            0% {
+                opacity: 0.1;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            40% {
+                opacity: 0.5;
+            }
+            60% {
+                opacity: 0.3;
+            }
+            80% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0.1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <ul>
+            <li><img src="eat/eat1.jpg"></li>
+            <li><img src="eat/eat2.jpg"></li>
+            <li><img src="eat/eat3.jpg"></li>
+            <li><img src="eat/eat4.jpg"></li>
+            <li><img src="eat/eat5.jpg"></li>
+            <li><img src="eat/eat6.jpg"></li>
+            <li><img src="eat/eat7.jpg"></li>
+            <li><img src="eat/eat8.jpg"></li>
+            <li><img src="eat/eat9.jpg"></li>
+            <li><img src="eat/eat10.jpg"></li>
+        </ul>
+    </div>
+</body>
+
+</html>
